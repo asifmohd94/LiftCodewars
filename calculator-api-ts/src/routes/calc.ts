@@ -7,7 +7,8 @@ const history:object[] = [];
 router.post('/add', (req, res) => {
     const operation = {
         operands: req.body.operand,
-        result: 0
+        result: 0,
+        operationPerformed: ""
     }
 
     let sum = 0;
@@ -15,6 +16,7 @@ router.post('/add', (req, res) => {
         sum += i;
     }
     operation.result = sum;
+    operation.operationPerformed = "+";
     history.push(operation)
     res.send(operation);
 })
@@ -23,7 +25,8 @@ router.post('/subtract', (req, res) => {
     console.log("hello I m running");
     const operation = {
         operands: req.body.operand,
-        result: 0
+        result: 0,
+        operationPerformed: ""
     }
 
     let minus = operation.operands[0];
@@ -31,6 +34,7 @@ router.post('/subtract', (req, res) => {
         minus -= operation.operands[i];
     }
     operation.result = minus;
+    operation.operationPerformed = "-"
     history.push(operation)
     res.send(operation);
 })
@@ -39,7 +43,8 @@ router.post('/subtract', (req, res) => {
 router.post('/multiply', (req, res) => {
     const operation = {
         operands: req.body.operand,
-        result: 0
+        result: 0,
+        operationPerformed: ""
     }
 
     let product = 1;
@@ -47,6 +52,7 @@ router.post('/multiply', (req, res) => {
         product *= i;
     }
     operation.result = product;
+    operation.operationPerformed = "*";
     history.push(operation)
     res.send(operation);
 })
@@ -54,7 +60,8 @@ router.post('/multiply', (req, res) => {
 router.post('/divide', (req, res) => {
     const operation = {
         operands: req.body.operand,
-        result: 0
+        result: 0,
+        operationPerformed: ""
     }
 
     let divide = operation.operands[0];
@@ -62,6 +69,7 @@ router.post('/divide', (req, res) => {
         divide /= operation.operands[i];
     }
     operation.result = divide;
+    operation.operationPerformed = "/";
     history.push(operation)
     res.send(operation);
 })
@@ -69,7 +77,8 @@ router.post('/divide', (req, res) => {
 router.post('/modulus', (req, res) => {
     const operation = {
         operands: req.body.operand,
-        result: 0
+        result: 0,
+        operationPerformed: ""
     }
 
     let mod = operation.operands[0];
@@ -77,6 +86,7 @@ router.post('/modulus', (req, res) => {
         mod %= operation.operands[i];
     }
     operation.result = mod;
+    operation.operationPerformed = "%"
     history.push(operation)
     res.send(operation);
 })
