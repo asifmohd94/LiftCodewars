@@ -1,0 +1,15 @@
+<div style="background-color: red;">
+    <input type="file" (change)="upload($event)" />
+
+    <button (click)="onSubmit()">Submit</button>
+
+    <button (click)="getImage()">Click</button>
+</div>
+
+<br><br>
+<div>
+    <div *ngFor="let i of b" class="img-div">
+        <img [src]="i" alt="" style="height: 250px;width: 200px;margin: 20px;">
+       
+    </div>
+</div>
