@@ -1,0 +1,29 @@
+<h1>Student Component</h1>
+
+<input type="text" #input placeholder="Search by Enroll Number">
+<!-- <app-loading *ngIf="isLoading"></app-loading> -->
+<button (click)="getStudent(input.value,input.value)">Search</button>
+
+<br><br>
+<table border="1" *ngIf="bool">
+    <tr>
+        <td>Enrollment Number</td>
+        <td>First Name</td>
+        <td>Last Name</td>
+        <td>Fathers Name</td>
+        <td>Gender</td>
+        <td>Date of Birth</td>
+        <td>Addmission Class</td>
+        <td>Address</td>
+    </tr>
+    <tr *ngFor="let i of student">
+        <td>{{i.enroll_number}}</td>
+        <td>{{i.first_name}}</td>
+        <td>{{i.last_name}}</td>
+        <td>{{i.fathers_name}}</td>
+        <td>{{i.gender}}</td>
+        <td>{{i.dob}}</td>
+        <td>{{i.addmission_grade}}</td>
+        <td>{{i.address}}</td>
+    </tr>
+</table>

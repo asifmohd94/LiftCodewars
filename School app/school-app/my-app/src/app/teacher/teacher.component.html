@@ -1,0 +1,24 @@
+<h1>Teacher Componnet</h1>
+
+<input type="text" #input placeholder="Search by First Name">
+
+<button (click)="getTeacher(input.value)">Search</button>
+<br><br>
+<table border="1" *ngIf="bool">
+    <tr>
+        <td>Emp Id</td>
+        <td>First Name</td>
+        <td>Last Name</td>
+        <td>Gender</td>
+        <td>Email</td>
+        <td>Primary Subject</td>
+    </tr>
+    <tr *ngFor="let i of teacher">
+        <td>{{i.emp_id}}</td>
+        <td>{{i.first_name}}</td>
+        <td>{{i.last_name}}</td>
+        <td>{{i.gender}}</td>
+        <td>{{i.email}}</td>
+        <td>{{i.primary_subject}}</td>
+    </tr>
+</table>
